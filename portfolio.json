@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "tensor-forge-144-alan-vo",
+  "owner": "ALANDVO",
+  "email": "alanvo@gmail.com",
+  "domain": "AI/ML developer tools",
+  "summary": "Work in progress: tensor-forge-144-alan-vo",
+  "workflows": [
+    "Create and manage model-specific prompt templates with versioning",
+    "Run deterministic jailbreak evaluations against labeled test datasets",
+    "Export evaluation results with metrics for analysis"
+  ],
+  "auth": "oidc-keycloak-saml-broker",
+  "llm_providers": [
+    "openai-compatible",
+    "anthropic",
+    "gemini",
+    "ollama"
+  ],
+  "status": "work-in-progress"
+}

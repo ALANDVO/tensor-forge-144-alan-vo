@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "current_feature": "project-skeleton",
+  "features": [
+    {
+      "id": "project-skeleton",
+      "title": "Project Skeleton with FastAPI/React Foundation",
+      "status": "done",
+      "acceptance": [
+        "Backend FastAPI app with health endpoint",
+        "Frontend React+TypeScript+Vite app with build script",
+        "Dockerfiles for both services",
+        "docker-compose with Keycloak and persistent volumes",
+        "Basic CI workflow",
+        "Portfolio.json, README, LICENSE, CHANGELOG, pyproject.toml, .gitignore, .env.example"
+      ],
+      "implementation": [
+        "backend/app/main.py",
+        "backend/app/core/config.py",
+        "backend/app/core/database.py",
+        "backend/app/api/health.py",
+        "backend/Dockerfile",
+        "backend/requirements.txt",
+        "frontend/src/main.tsx",
+        "frontend/src/App.tsx",
+        "frontend/src/App.css",
+        "frontend/src/index.css",
+        "frontend/package.json",
+        "frontend/Dockerfile",
+        "frontend/nginx.conf",
+        "frontend/vite.config.ts",
+        "frontend/tsconfig.json",
+        "compose.yaml",
+        ".github/workflows/ci.yml",
+        "portfolio.json",
+        "README.md",
+        "LICENSE",
+        "CHANGELOG.md",
+        "pyproject.toml",
+        ".gitignore",
+        ".env.example",
+        "keycloak/realm.json"
+      ],
+      "tests": [
+        "backend/tests/test_health.py",
+        "frontend/src/App.test.tsx"
+      ]
+    },
+    {
+      "id": "prompt-management",
+      "title": "Prompt Template Management (CRUD + Search)",
+      "status": "planned",
+      "acceptance": [
+        "Create/read/update/delete prompt templates via API",
+        "Search/filter prompts by model, tags, category",
+        "Pagination support",
+        "SQLite persistence with UTC timestamps"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "model-specific-prompts",
+      "title": "Model-Specific Prompt Swapping",
+      "status": "planned",
+      "acceptance": [
+        "Different prompts per model (default: '小码辉')",
+        "Prompt selection by model identifier",
+        "Fallback to default when model-specific not found"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "jailbreak-evaluation",
+      "title": "Jailbreak Evaluation Engine",
+      "status": "planned",
+      "acceptance": [
+        "Deterministic evaluation of prompt effectiveness",
+        "Test suite with labeled dataset",
+        "Metrics: success rate, refusal rate, token usage",
+        "Export results (JSON/CSV)"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "oidc-auth",
+      "title": "OIDC Authentication with Keycloak",
+      "status": "planned",
+      "acceptance": [
+        "Authorization code flow with PKCE",
+        "HttpOnly SameSite cookies + CSRF protection",
+        "Role-based access (viewer/operator/admin)",
+        "Demo mode (localhost only, refuses in production)"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "llm-adapters",
+      "title": "LLM Provider Adapters",
+      "status": "planned",
+      "acceptance": [
+        "OpenAI-compatible, Anthropic, Gemini, Ollama adapters",
+        "Configurable provider/model/endpoint",
+        "Bounded timeouts, redacted errors",
+        "Keys server-side only"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "frontend-workflows",
+      "title": "Frontend Dashboard and Workflows",
+      "status": "planned",
+      "acceptance": [
+        "Prompt library dashboard with create/import/search/detail/export",
+        "Model-specific prompt editor",
+        "Jailbreak evaluation runner with results view",
+        "Loading/error/empty states"
+      ],
+      "implementation": [],
+      "tests": []
+    }
+  ]
+}
