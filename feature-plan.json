@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "project-skeleton",
+  "current_feature": "prompt-management",
   "features": [
     {
       "id": "project-skeleton",
@@ -49,15 +49,24 @@
     {
       "id": "prompt-management",
       "title": "Prompt Template Management (CRUD + Search)",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "Create/read/update/delete prompt templates via API",
         "Search/filter prompts by model, tags, category",
         "Pagination support",
         "SQLite persistence with UTC timestamps"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "backend/app/core/database.py",
+        "backend/app/schemas/prompt.py",
+        "backend/app/api/prompts.py",
+        "backend/app/api/__init__.py",
+        "backend/app/main.py"
+      ],
+      "tests": [
+        "backend/tests/test_prompts.py",
+        "backend/tests/conftest.py"
+      ]
     },
     {
       "id": "model-specific-prompts",

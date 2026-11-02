@@ -2,7 +2,11 @@
   "name": "tensor-forge-144-frontend",
   "version": "1.0.0",
   "description": "Tensor Forge 144 - Jailbreak evaluation frontend",
-  "author": "Alan Vo <alanvo@gmail.com>",
+  "author": {
+    "name": "Alan Vo",
+    "email": "alanvo@gmail.com",
+    "url": "https://github.com/ALANDVO"
+  },
   "private": true,
   "type": "module",
   "scripts": {

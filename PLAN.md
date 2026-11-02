@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-project-skeleton
+prompt-management
 
 ## Roadmap
 
@@ -26,13 +26,17 @@ Tests: `backend/tests/test_health.py`, `frontend/src/App.test.tsx`
 
 ### prompt-management — Prompt Template Management (CRUD + Search)
 
-Status: planned
+Status: done
 
 Acceptance:
 - Create/read/update/delete prompt templates via API
 - Search/filter prompts by model, tags, category
 - Pagination support
 - SQLite persistence with UTC timestamps
+
+Implementation: `backend/app/core/database.py`, `backend/app/schemas/prompt.py`, `backend/app/api/prompts.py`, `backend/app/api/__init__.py`, `backend/app/main.py`
+
+Tests: `backend/tests/test_prompts.py`, `backend/tests/conftest.py`
 
 ### model-specific-prompts — Model-Specific Prompt Swapping
 
