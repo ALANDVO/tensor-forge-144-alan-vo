@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "prompt-management",
+  "current_feature": "model-specific-prompts",
   "features": [
     {
       "id": "project-skeleton",
@@ -71,14 +71,20 @@
     {
       "id": "model-specific-prompts",
       "title": "Model-Specific Prompt Swapping",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "Different prompts per model (default: '小码辉')",
         "Prompt selection by model identifier",
         "Fallback to default when model-specific not found"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "backend/app/core/database.py",
+        "backend/app/schemas/prompt.py",
+        "backend/app/api/prompts.py"
+      ],
+      "tests": [
+        "backend/tests/test_prompts.py"
+      ]
     },
     {
       "id": "jailbreak-evaluation",
