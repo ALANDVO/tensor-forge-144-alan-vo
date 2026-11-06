@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-prompt-management
+model-specific-prompts
 
 ## Roadmap
 
@@ -40,12 +40,16 @@ Tests: `backend/tests/test_prompts.py`, `backend/tests/conftest.py`
 
 ### model-specific-prompts — Model-Specific Prompt Swapping
 
-Status: planned
+Status: done
 
 Acceptance:
 - Different prompts per model (default: '小码辉')
 - Prompt selection by model identifier
 - Fallback to default when model-specific not found
+
+Implementation: `backend/app/core/database.py`, `backend/app/schemas/prompt.py`, `backend/app/api/prompts.py`
+
+Tests: `backend/tests/test_prompts.py`
 
 ### jailbreak-evaluation — Jailbreak Evaluation Engine
 
