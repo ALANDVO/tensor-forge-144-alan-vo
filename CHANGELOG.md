@@ -36,3 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documented existing implementation for per-model prompt templates with '小码辉' default persona
 - GET /api/v1/prompts/model/{model} endpoint with model-specific default lookup and global fallback
 - Updated feature plan and project documentation
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

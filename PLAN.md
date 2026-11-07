@@ -91,3 +91,6 @@ Acceptance:
 - Jailbreak evaluation runner with results view
 - Loading/error/empty states
 
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)
