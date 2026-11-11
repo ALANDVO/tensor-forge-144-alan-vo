@@ -1,9 +1,11 @@
 """Database session management and base model."""
 from contextlib import contextmanager
 from typing import Generator
-from sqlalchemy import create_engine, event, Column, Integer, String, Text, Boolean, DateTime, func, JSON
+from sqlalchemy import create_engine, event, Column, Integer, String, Text, Boolean, DateTime, func, JSON, select
 from sqlalchemy.orm import DeclarativeBase, sessionmaker, Session
 from app.core.config import settings
+
+
 class Base(DeclarativeBase):
     """Base class for all database models."""
     pass
@@ -67,6 +69,36 @@ def get_db_context() -> Generator[Session, None, None]:
         db.close()
 
 
+def seed_default_prompts() -> None:
+    """Seed database with default prompt templates."""
+    db = SessionLocal()
+    try:
+        # Check if default "小码辉" prompt already exists
+        existing = db.execute(
+            select(PromptTemplate).where(
+                PromptTemplate.name == "小码辉 Default",
+                PromptTemplate.model.is_(None),
+                PromptTemplate.is_default == True
+            )
+        ).scalar_one_or_none()
+        
+        if not existing:
+            default_prompt = PromptTemplate(
+                name="小码辉 Default",
+                description="Default 小码辉 persona for general-purpose assistance",
+                template="You are 小码辉, a helpful, harmless, and honest AI assistant. Provide accurate, concise, and safe responses to user queries.",
+                model=None,  # Global default
+                tags=["default", "persona", "小码辉"],
+                category="general",
+                is_default=True,
+            )
+            db.add(default_prompt)
+            db.commit()
+    finally:
+        db.close()
+
+
 def init_db() -> None:
-    """Initialize database tables."""
+    """Initialize database tables and seed default data."""
     Base.metadata.create_all(bind=engine)
+    seed_default_prompts()
