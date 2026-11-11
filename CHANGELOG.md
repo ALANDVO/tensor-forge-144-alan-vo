@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
 ## 1.2.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
@@ -16,6 +20,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.2.0] - 2026-11-11
+
+### Added
+- Database seed function for default "小码辉" prompt template
+- Default global prompt automatically created on database initialization
+- Fallback to global "小码辉" default when model-specific prompt not found
+- Updated init_db() to call seed_default_prompts() after table creation
+
+### Changed
+- Modified backend/app/core/database.py to include seed_default_prompts() function
+- Enhanced init_db() to seed default data after schema creation
 
 ## [1.1.0] - 2026-11-02
 
