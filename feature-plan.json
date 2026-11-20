@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "model-specific-prompts",
+  "current_feature": "jailbreak-evaluation",
   "features": [
     {
       "id": "project-skeleton",
@@ -73,7 +73,7 @@
       "title": "Model-Specific Prompt Swapping",
       "status": "done",
       "acceptance": [
-        "Different prompts per model (default: '小码辉')",
+        "Different prompts per model (default: '\u5c0f\u7801\u8f89')",
         "Prompt selection by model identifier",
         "Fallback to default when model-specific not found"
       ],
@@ -89,15 +89,21 @@
     {
       "id": "jailbreak-evaluation",
       "title": "Jailbreak Evaluation Engine",
-      "status": "planned",
+      "status": "in_progress",
       "acceptance": [
         "Deterministic evaluation of prompt effectiveness",
         "Test suite with labeled dataset",
         "Metrics: success rate, refusal rate, token usage",
         "Export results (JSON/CSV)"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "backend/app/api/evaluation.py",
+        "backend/app/schemas/evaluation.py",
+        "backend/app/core/database.py"
+      ],
+      "tests": [
+        "backend/tests/test_evaluation.py"
+      ]
     },
     {
       "id": "oidc-auth",
