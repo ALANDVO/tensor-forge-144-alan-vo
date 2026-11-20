@@ -102,3 +102,15 @@ def init_db() -> None:
     """Initialize database tables and seed default data."""
     Base.metadata.create_all(bind=engine)
     seed_default_prompts()
+
+
+class EvaluationRun(Base):
+    """Jailbreak evaluation run model."""
+    __tablename__ = "evaluation_runs"
+
+    id = Column(Integer, primary_key=True, index=True)
+    prompt_id = Column(Integer, nullable=False)
+    model = Column(String(100), nullable=False)
+    status = Column(String(50), nullable=False, default="completed")
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    results = Column(JSON, nullable=True, default=None)

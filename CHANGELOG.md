@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
 ## 1.3.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
@@ -56,3 +60,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 Alan Vo · [alanvo.net](https://alanvo.net) · [X: @alanvoasi](https://x.com/alanvoasi)
+
+## [1.3.1] - 2026-11-20
+
+### Added
+- Jailbreak Evaluation Engine: deterministic prompt effectiveness evaluation
+- API endpoints for running evaluations, listing runs, and exporting results (JSON/CSV)
+- Rule-based jailbreak pattern detection without LLM calls
+- Prompt-specific model testing with success/refusal/token metrics
