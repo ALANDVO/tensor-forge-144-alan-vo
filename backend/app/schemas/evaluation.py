@@ -61,6 +61,23 @@ class EvaluationRunResponse(BaseModel):
         default_factory=list,
         description="List of evaluation results",
     )
+    success_rate: float = Field(
+        default=0.0,
+        ge=0,
+        le=1,
+        description="Percentage of evaluation results where success=True",
+    )
+    refusal_rate: float = Field(
+        default=0.0,
+        ge=0,
+        le=1,
+        description="Percentage of evaluation results where refusal=True",
+    )
+    avg_token_usage: float = Field(
+        default=0.0,
+        ge=0,
+        description="Average token usage across all results",
+    )
 
     class Config:
         from_attributes = True
