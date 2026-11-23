@@ -131,6 +131,20 @@ async def run_evaluation(
     db.commit()
     db.refresh(run)
 
+    # Compute aggregate metrics from evaluation results
+    total_results = len(run.results)
+    if total_results > 0:
+        success_count = sum(1 for r in run.results if r["success"])
+        refusal_count = sum(1 for r in run.results if r["refusal"])
+        avg_tokens = sum(r["token_usage"] for r in run.results) / total_results
+    else:
+        success_count = 0
+        refusal_count = 0
+        avg_tokens = 0.0
+
+    success_rate = success_count / total_results if total_results > 0 else 0.0
+    refusal_rate = refusal_count / total_results if total_results > 0 else 0.0
+
     return EvaluationRunResponse(
         id=run.id,
         prompt_id=run.prompt_id,
@@ -138,6 +152,9 @@ async def run_evaluation(
         status=run.status,
         created_at=run.created_at,
         results=run.results,
+        success_rate=success_rate,
+        refusal_rate=refusal_rate,
+        avg_token_usage=avg_tokens,
     )
 
 
@@ -252,6 +269,20 @@ async def get_evaluation_run(
             detail=f"Evaluation run with id {run_id} not found",
         )
 
+    # Compute aggregate metrics from evaluation results
+    total_results = len(run.results)
+    if total_results > 0:
+        success_count = sum(1 for r in run.results if r["success"])
+        refusal_count = sum(1 for r in run.results if r["refusal"])
+        avg_tokens = sum(r["token_usage"] for r in run.results) / total_results
+    else:
+        success_count = 0
+        refusal_count = 0
+        avg_tokens = 0.0
+
+    success_rate = success_count / total_results if total_results > 0 else 0.0
+    refusal_rate = refusal_count / total_results if total_results > 0 else 0.0
+
     return EvaluationRunResponse(
         id=run.id,
         prompt_id=run.prompt_id,
@@ -259,6 +290,9 @@ async def get_evaluation_run(
         status=run.status,
         created_at=run.created_at,
         results=run.results,
+        success_rate=success_rate,
+        refusal_rate=refusal_rate,
+        avg_token_usage=avg_tokens,
     )
 
 

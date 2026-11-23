@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tensor-forge-144-alan-vo"
-version = "1.4.0"
+version = "1.5.0"
 description = "Jailbreak evaluation framework for LLMs with model-specific prompt management"
 readme = "README.md"
 license = {text = "MIT"}
