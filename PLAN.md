@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-jailbreak-evaluation
+model-specific-prompts
 
 ## Roadmap
 
@@ -53,17 +53,13 @@ Tests: `backend/tests/test_prompts.py`
 
 ### jailbreak-evaluation — Jailbreak Evaluation Engine
 
-Status: in_progress
+Status: planned
 
 Acceptance:
 - Deterministic evaluation of prompt effectiveness
 - Test suite with labeled dataset
 - Metrics: success rate, refusal rate, token usage
 - Export results (JSON/CSV)
-
-Implementation: `backend/app/api/evaluation.py`, `backend/app/schemas/evaluation.py`, `backend/app/core/database.py`
-
-Tests: `backend/tests/test_evaluation.py`
 
 ### oidc-auth — OIDC Authentication with Keycloak
 
